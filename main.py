@@ -17,7 +17,7 @@ def heic_to_jpg(heic_path):
     image = Image.frombytes(
         heif_file.mode,
         heif_file.size,
-        heif_file.data,
+        bytes(heif_file.data),  # <-- Convert memoryview to bytes here
         "raw",
         heif_file.mode,
         heif_file.stride,
